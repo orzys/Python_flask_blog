@@ -1,0 +1,20 @@
+{%extends "baza.html"%}
+{%block content%}
+
+<html>
+<body>
+ <main role="main" class="container">
+        <div class="starter-template">
+                <h1>Edycja</h1>
+            <form method="POST" class="form-signin">
+                    <label for="tytul" class="sr-only">Tytuł</label>
+                    <input type="text" name="tytul" value = "{{ post.tytul }}" class="form-control" required autofocus><br>
+                    <label for="post" class="sr-only">Tresc posta</label>
+                    <input type="text" name="post" value = "{{ post.post }}" class="form-control" required autofocus><br> 
+                    <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block"><br>
+            </form>
+        </div>
+</main>
+</body>
+</html>
+{%endblock%}

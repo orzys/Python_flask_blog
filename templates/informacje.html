@@ -1,0 +1,15 @@
+{%extends "baza.html"%}
+	{%block content%}
+	<h4>Posty:</h4>
+	{%for post in posty%}
+	<div class="col-sm-9">	
+      
+      <hr>
+      <h2>{{title}}</h2>
+      <h5><span class="glyphicon glyphicon-time"></span> Post by {{post.autor.username}}</h5>
+      
+      <p>{{post.body}}</p>
+      <br><br>
+    </div>
+	{%endfor%}
+	{%endblock%}

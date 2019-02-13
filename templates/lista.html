@@ -1,0 +1,18 @@
+{%extends "baza.html"%}
+    {%block content%}
+        <div class="starter-template">
+            <h1>Posty</h1>
+            {%for rekord in rekordy%}
+            <h2>{{rekord["tytul"]}}</h2>
+                    <h5>{{rekord["data"]}}</h5>
+                    <h3>{{rekord["post"]}}</h3>
+                    {% if current_user.is_authenticated %}
+                    <form action = "{{url_for('deletepost')}}" method="POST">
+                            <input type="submit" value = "Usun" /> <br>
+                    </form>
+                    {%endif%}
+                    <br>
+                    {%endfor%}
+                
+        </div>
+    {%endblock%}

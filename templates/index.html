@@ -1,0 +1,23 @@
+{%extends "baza.html"%}
+	{%block content%}
+	<h1>Strona główna</h1>
+	<p class="lead">Strona główna</p>
+	<table border=1>
+        <tr>
+            <td>Tytuł</td>	<td>Post</td> <td>Data</td> <td>Komentarz</td>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.tytul }}</td>	
+            <td>{{ post.post }}</td> 
+            <td>{{ post.data }}</td>
+            <td>{{ post.komentarz }}</td> 
+            <td> <a href="{{ url_for('edit', id=post._id) }}">Edytuj</a> </td> 
+            <td> <a href="{{ url_for('delete', id=post._id) }}">Usuń</a> </td>
+            <td> <a href="{{ url_for('addcomment', id=post._id) }}">Dodaj komentarz</a> </td>
+            </form>
+
+        </tr>
+        {% endfor %}
+    </table>
+	{%endblock%}

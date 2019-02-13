@@ -1,0 +1,25 @@
+{%extends "baza.html"%}
+	{%block content%}
+	<h1>Strona główna</h1>
+	<p class="lead">Strona główna</p>
+	<table>
+        <tr>
+            <td>Tytuł</td>	<td>Post</td> <td>Data</td>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.tytul }}</td>	
+            <td>{{ post.post }}</td> 
+            <td>{{ post.data }}</td> 
+            <td> <a href="{{ url_for('edit', id=post._id) }}">Edytuj</a> </td> 
+            <td> <a href="{{ url_for('delete', id=post._id) }}">Usuń</a> </td>
+            <form method="POST" class="form-comment">
+            <label for="komentarz" class="sr-only">Dodaj komentarz:</label>
+            <input type="text" name="komentarz" class="form-control" placeholder="Twój komentarz..." required><br>
+            <input type="submit" value="Submit"class="btn btn-lg btn-primary btn-block" ><br>
+            </form>
+
+        </tr>
+        {% endfor %}
+    </table>
+	{%endblock%}
